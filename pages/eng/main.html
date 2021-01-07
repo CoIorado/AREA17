@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../pictures/icon.png">
     <title>AREA17 ― A brand and digital product agency</title>
 </head>
 
 <body>
     <div id="wrapper">
-        <a href="index.html">
+        <a class="index-link" href="index.html">
             <div id="indexBar">
                 <p class="rotated">Index</p>
             </div>
@@ -21,9 +24,10 @@
             <div class="nav-bar">
                 <span class="brand-name"><a href="main.html">AREA 17</a></span>
                 <ul class="sub-bar">
-                    <li class="sub-item"><a href="work.html">Work</a></li>
-                    <li class="sub-item"><a href="about.html">About</a></li>
-                    <li class="sub-item"><a href="contact.html">Contact</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="index-link"><a href="index.html">Index</a></li>
                 </ul>
             </div>
             <div class="bg-blur"></div>
@@ -46,24 +50,29 @@
         </div>
 
         <section id="main">
-            <div id="title" class="triple-grid">
-                <div class="triple-grid-item"><a href="main.html">
-                        <h1>A/</h1>
-                    </a></div>
-                <div class="triple-grid-item">
+            <div id="title" class="double-grid">
+                <div class="double-grid-item smaller">
+                    <h1>
+                        <a href="main.html">A/</a>
+                    </h1>
+                </div>
+                <div class="double-grid-item bigger">
                     <h2>Craft,<br>Impact,<br>& Soul</h2>
                 </div>
-                <div class="triple-grid-item"></div>
             </div>
-            <div class="triple-grid">
-                <div class="triple-grid-item"></div>
-                <div class="triple-grid-item">
-                    <p>AREA 17 is a brand and digital product agency in Paris and New York. We solve problems to serve
-                        people. Our work is designed to simplify and engineered to endure.</p>
-                </div>
-                <div class="triple-grid-item">
-                    <p>Founded in 2003, we partner with organizations we trust and admire to create lasting value
-                        through craft, impact, and soul.</p>
+            <div class="double-grid">
+                <div class="double-grid-item smaller"></div>
+                <div class="double-grid-item bigger">
+                    <div class="double-grid">
+                        <div class="double-grid-item">
+                            <p>AREA 17 is a brand and digital product agency in Paris and New York. We solve problems to serve
+                                people. Our work is designed to simplify and engineered to endure.</p>
+                        </div>
+                        <div class="double-grid-item">
+                            <p>Founded in 2003, we partner with organizations we trust and admire to create lasting value
+                                through craft, impact, and soul.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="article-picture-right">
@@ -148,7 +157,9 @@
                     <p><a class="link-underlined" id="french" href="../french/main.html">Version française</a></p>
                 </div>
                 <div class="footer-content-item">
-                    <p class="right-arrow"><span id="newsletter">Subscribe to our newsletter</span>&#8203</p>
+                    <p>
+                        <span id="newsletter" class="right-arrow">Subscribe to our newsletter</span>&#8203
+                    </p>
                     <span class="social-links">
                         <p><a class="link-underlined" href="https://www.facebook.com">Facebook</a></p>
                         <p><a class="link-underlined" href="https://twitter.com">Twitter</a></p>
@@ -156,9 +167,15 @@
                     </span>
                 </div>
                 <div class="footer-content-item">
-                    <div class="copyright">
-                        <p>&copy 2020 area17.com. All rights reserved.</p>
-                        <p>99 Richardson Street, Brooklyn, NY 11211.</p>
+                    <div class="info">
+                        <span class="full">
+                            <p>&copy 2021 AREA17.com. All rights reserved</p>
+                            <p>99 Richardson Street, Brooklyn, NY 11211</p>
+                        </span>
+                        <span class="short">
+                            <p>&copy 2021 AREA17.com</p>
+                            <p>Brooklyn, New York</p>
+                        </span>
                     </div>
                 </div>
             </div>

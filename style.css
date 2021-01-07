@@ -11,10 +11,6 @@
     -ms-user-select: text;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 .header {
     display: flex;
     flex-direction: row-reverse;
@@ -62,18 +58,19 @@ p.break-after {
 }
 
 #main > #title {
-    padding-top: 5vh;
-    font-weight: 600;
+    padding-top: 50px;
 }
 
 h1 {
-    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 110px;
+    margin-top: -20px;
     line-height: initial;
 }
 
 h2 {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 90px;
     line-height: initial;
 }
@@ -88,6 +85,10 @@ h4 {
     font-weight: 400;
     font-size: 30px;
     line-height: initial;
+}
+
+h1 a:link {
+    box-shadow: none;
 }
 
 h2 br {
@@ -161,7 +162,7 @@ h2 br {
 }
 
 p.description {
-    color: grey;
+    color: rgb(100, 100, 100);
 }
 
 .no-top-margin {
@@ -393,11 +394,6 @@ ul.activity-fields li:nth-child(1) {
     overflow: hidden;
 }
 
-.sub-bar li {
-    list-style-type: none;
-    margin-right: 50px;
-}
-
 .brand-name {
     width: calc((100% - 65px) / 3);
     margin-right: 40px;
@@ -408,6 +404,15 @@ ul.activity-fields li:nth-child(1) {
     flex-direction: row;
     width: 66%;
     justify-content: flex-start;
+}
+
+.sub-bar li {
+    list-style-type: none;
+    margin-right: 50px;
+}
+
+.sub-bar .index-link {
+    display: none;
 }
 
 #indexBar {
@@ -430,14 +435,14 @@ ul.activity-fields li:nth-child(1) {
 
 #indexBar p {
     height: 26px;
-    width: 51px;
+    width: 50px;
     margin-left: 10px;
     margin-top: 40px;
 }
 
 .clocks {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     display: flex;
     flex-direction: column;
     padding-top: 22px;
@@ -491,33 +496,21 @@ ul.activity-fields li:nth-child(1) {
 }
 
 .right-arrow:after {
-    font-family: "Suisse", "HelveticaNeue", Helvetica, Arial, Verdana, sans-serif;
+    font-family: Calibri, Georgia, Arial;
+    font-size: 0.6em;
+    font-weight: bold;
     content: "\2192";
     position: absolute;
-    clip: rect(auto, auto, auto, 6px);
-    transform: scale(0.8);
+    margin-left: 5px;
 }
 
 .right-top-arrow:after {
-    font-weight: 100;
+    font-family: Calibri, Georgia, Arial;
+    font-size: 0.6em;
+    font-weight: bold;
     content: "\2197";
     position: absolute;
-}
-
-#journal .journal-content-item p.right-top-arrow:after {
-    clip: rect(auto, auto, 17px, 12px);
-    transform: scale(0.8) translateX(-5px) translateY(5px);
-}
-
-#journal .triple-grid-item p.right-top-arrow:after {
-    clip: rect(auto, auto, 14px, 10px);
-    transform: translateX(-5px) translateY(5px);
-}
-
-.article-picture-left .double-grid .double-grid-item p.right-top-arrow:after,
-.article-picture-right .double-grid .double-grid-item p.right-top-arrow:after {
-    clip: rect(auto, auto, 13.5px, 10px);
-    transform: translateX(-5px) translateY(5px);
+    margin-left: 5px;
 }
 
 .add-children-gap > *,
@@ -557,6 +550,14 @@ footer > div {
 
 .footer-content-item:nth-last-child(1) {
     margin-right: 0;
+}
+
+.info .full {
+    display: initial;
+}
+
+.info .short {
+    display: none;
 }
 
 .social-links {
@@ -631,7 +632,7 @@ footer > div {
 .subscribe-panel-content > form input {
     padding: 0;
     font-size: inherit;
-    width: 92%;
+    width: calc(100% - 60px);
     background-color: transparent;
     border: unset;
 }
@@ -646,7 +647,7 @@ textarea:focus, input:focus{
 
 .subscribe-panel-content > form button {
     font-size: inherit;
-    width: 8%;
+    width: 60px;
     background-color: transparent;
     border: unset;
     text-align: right;
@@ -802,8 +803,9 @@ ul#project-list li .arrow {
 }
 
 ul#project-list li .arrow:after {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Calibri, Georgia, Arial;
     font-weight: 200;
+    font-size: 0.8em;
     width: 5%;
     content: "\2192";
 }
@@ -834,8 +836,9 @@ ul#project-list li .arrow:after {
 }
 
 #scroll-header .arrow:after {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Calibri, Georgia, Arial;
     font-weight: 200;
+    font-size: 0.8em;
     width: 5%;
     content: "\2191";
 }
@@ -848,4 +851,329 @@ ul#project-list li .arrow:after {
 .filter-handler .all,
 .filter-handler .hidden > * {
     margin-bottom: 10px;
+}
+
+@media screen and (min-width: 1600px) {
+    #wrapper,
+    #index-wrapper,
+    .nav-bar {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 1330px) {
+    body,
+    footer {
+        font-size: 18px;
+    }
+
+    .header,
+    .clocks div span,
+    #indexBar {
+        font-size: 19px;
+    }
+
+    #main > div {
+        padding: 60px 40px 0 40px;
+    }
+
+    #indexBar p {
+        width: 46px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .clocks {
+        margin: 0;
+    }
+
+    .info {
+        display: flex;
+        justify-content: center;
+    }
+
+    .info .full {
+        display: none;
+    }
+    
+    .info .short {
+        display: initial;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .social-links {
+        width: 240px;
+    }
+
+    .double-grid .double-grid-item.bigger.bigger .double-grid {
+        flex-direction: column;
+    }
+
+    .double-grid .double-grid-item.bigger.bigger .double-grid > .double-grid-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .double-grid .double-grid-item.bigger.bigger .double-grid > .double-grid-item:nth-last-child(1) {
+        margin-bottom: 0;
+    }
+
+    body,
+    footer {
+        font-size: 17px;
+    }
+
+    #main > div {
+        padding: 40px 40px 0 40px;
+    }
+
+    h1 {
+        font-size: 100px;
+    }
+
+    h2 {
+        font-size: 80px;
+    }
+
+    .article-picture-left > .img-item > img, .article-picture-right > .img-item > img {
+        width: 100%;
+    }
+
+    .article-picture-right .double-grid-item:nth-child(1) {
+        padding-left: 0;
+    }
+
+    .article-picture-left .double-grid-item:nth-child(2) {
+        padding-right: 0;
+    }
+
+    .sub-bar li {
+        margin-right: 25px;
+    }
+
+    .clocks {
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    body,
+    footer {
+        font-size: 16px;
+    }
+
+    .header,
+    .clocks div span {
+        font-size: 17px;
+    }
+
+    .nav-bar {
+        padding: 25px 110px 0px 40px;
+    }
+
+    .social-links {
+        width: 210px;
+    }
+
+    #main p {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #journal {
+        padding-top: 60px;
+    }
+
+    #journal > div {
+        padding: 60px 40px;
+    }
+
+    .journal-content {
+        flex-direction: column;
+        font-size: 19px;
+    }
+
+    .journal-content-item:nth-child(1) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+        color: rgb(100, 100, 100);
+    }
+
+    .journal-content-item:nth-child(1) p {
+        font-size: inherit;
+    }
+
+    .journal-content-item:nth-child(1):hover p {
+        box-shadow: inset 0 -1px rgb(100, 100, 100);
+    }
+
+    .journal-content-item:nth-child(2) {
+        width: 100%;
+    }
+
+    .journal-content-item:nth-child(2) p {
+        font-size: inherit;
+        margin-bottom: 15px;
+    }
+
+    footer {
+        font-size: 19px;
+    }
+
+    .footer-content {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .footer-content > .footer-content-item {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .footer-content > .footer-content-item:nth-last-child(1) {
+        margin-bottom: 0;
+    }
+
+    .social-links {
+        width: 280px;
+    }
+
+    .info {
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #main > div {
+        margin: 0;
+        padding: 60px 30px 0 30px;
+    }
+
+    #main > #title {
+        padding-top: 150px;
+    }
+
+    .nav-bar {
+        padding: 25px 30px 0px 30px;
+        margin: 0;
+    }
+
+    #journal > div,
+    footer > div {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .bg-blur {
+        width: 100%;
+    }
+
+    .sub-bar .index-link {
+        display: initial;
+    }
+
+    #indexBar {
+        display: none;
+    }
+
+    .clocks {
+        display: none;
+    }
+
+    .double-grid-item,
+    .triple-grid-item {
+        margin-right: 30px;
+    }
+
+    #journal,
+    footer {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {  
+    #main > div {
+        padding: 60px 20px 0 20px;
+    }
+
+    .double-grid-item,
+    .triple-grid-item {
+        margin-right: 20px;
+    }
+
+    #journal > div,
+    footer > div {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .brand-name {
+        display: none;
+    }
+
+    .bg-blur {
+        display: none;
+    }
+
+    .nav-bar {
+        position: absolute;
+        justify-content: flex-end;
+        height: 150px;
+        width: 150px;
+        left: unset;
+    }
+
+    .sub-bar {
+        width: auto;
+        flex-direction: column;
+    }
+
+    .sub-bar li {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .double-grid {
+        flex-direction: column;
+    }
+    
+    .double-grid-item.smaller,
+    .double-grid-item.bigger,
+    .double-grid-item {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .double-grid-item:nth-last-child(1) {
+        margin-bottom: 0;
+    }
+
+    #main > #title {
+        padding-top: 25px;
+    }
+
+    h1 {
+        font-size: 90px;
+        margin-top: -35px;
+    }
+
+    h2 {
+        font-size: 70px;
+    }
+
+    #title .double-grid-item.bigger {
+        margin-top: 100px;
+    }
+
+    #main > div:nth-child(2) {
+        padding-top: 20px;
+    }
+
+    #main > div:nth-child(4) .double-grid-item:nth-child(1) {
+        margin-bottom: 60px;
+    }
 }
