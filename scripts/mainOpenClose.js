@@ -1,4 +1,4 @@
-const indexBarLink = document.getElementById('indexBar').parentElement;
+const indexLinks = document.querySelectorAll('.index-link');
 const scrollToTopLink = document.getElementById('scroll-top');
 
 function hideElements() {
@@ -14,13 +14,15 @@ function showElements() {
 
 showElements();
 
-indexBarLink.addEventListener('click', (event) => {
-    event.preventDefault();
-    scrollToTopLink.click();
-
-    hideElements();
-
-    setTimeout(() => {
-        window.location.href = indexBarLink.href;
-    }, 1000);
+indexLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        
+        scrollToTopLink.click();
+        hideElements();
+    
+        setTimeout(() => {
+            window.location.href = link.href;
+        }, 1000);
+    });
 });

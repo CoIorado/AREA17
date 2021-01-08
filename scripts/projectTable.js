@@ -169,7 +169,7 @@ function addFilter() {
 }
 
 //flag for processing scroll event only once
-let scrollOnTop = true;
+let scrollAbove = true;
 
 /* Adds header changing effect when user scrolls page above a particular position */
 /* (in out case this pisition is on top of Projects table) */
@@ -189,7 +189,7 @@ function addScrollTrigger() {
     });
 
     document.addEventListener('scroll', () => {
-        if (window.scrollY >= scrollPos.offsetTop && scrollOnTop) {
+        if (window.scrollY >= scrollPos.offsetTop && scrollAbove) {
             scrollHeader.style.display = "flex";
             gsap.fromTo('#scroll-header',
                         { yPercent: 100 },
@@ -197,9 +197,9 @@ function addScrollTrigger() {
 
             initialHeader.style.display = "none";
 
-            scrollOnTop = false;
+            scrollAbove = false;
         }
-        else if (window.scrollY < scrollPos.offsetTop && !scrollOnTop) {
+        else if (window.scrollY < scrollPos.offsetTop && !scrollAbove) {
             initialHeader.style.display = "flex";
 
             gsap.fromTo('#initial-header',
@@ -218,7 +218,7 @@ function addScrollTrigger() {
                         { height: "70px", duration: 0.5, ease: "power3.out" });
             }
 
-            scrollOnTop = true;
+            scrollAbove = true;
         }
     });
 }
