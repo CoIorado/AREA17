@@ -49,7 +49,7 @@ function closeSubscribePanel() {
     subscribePanel.classList.add('slide-down-animation');
     setTimeout(() => {
         footer.removeChild(subscribePanel);
-    }, 400);
+    }, 350);
 }
 
 let clickCount = 0;

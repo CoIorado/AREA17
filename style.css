@@ -107,18 +107,12 @@ h2 br {
 }
 
 .clocks div {
-    width: 100px;
     margin-bottom: 20px;
-    font-size: 0;
-    line-height: 15pt;
-}
-
-.clocks div span {
-    font-size: 20px;
+    line-height: 30px;
 }
 
 .clocks .blink {
-    margin: 0 1px;
+    margin: 0 -4px;
 }
 
 .blink {
@@ -251,6 +245,7 @@ ul.activity-fields li:nth-child(1) {
     display: flex;
     flex-direction: row;
     width: 100%;
+    overflow: hidden;
 }
 
 .img-item img {
@@ -383,12 +378,13 @@ ul.activity-fields li:nth-child(1) {
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     height: 70px;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 22px 110px 0 40px;
+    padding: 0 110px 0 40px;
     margin-left: 70px;
     z-index: 3;
     overflow: hidden;
@@ -452,7 +448,7 @@ ul.activity-fields li:nth-child(1) {
     padding-top: 22px;
     width: calc((100% - 70px) / 3);
     align-items: flex-end;
-    padding-right: 30px;
+    padding-right: 40px;
     margin-right: 70px;
 }
 
@@ -485,12 +481,8 @@ ul.activity-fields li:nth-child(1) {
     width: 66.6%;
 }
 
-.journal-content-item:nth-child(1) p {
-    font-size: 1.1em;
-}
-
 .journal-content-item:nth-child(2) p {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 40px;
 }
 
@@ -503,7 +495,7 @@ ul.activity-fields li:nth-child(1) {
     font-family: Calibri, Georgia, Arial;
     font-size: 0.6em;
     font-weight: bold;
-    content: "\2192";
+    content: "\2192\00FE0E";
     position: absolute;
     margin-left: 5px;
 }
@@ -512,7 +504,7 @@ ul.activity-fields li:nth-child(1) {
     font-family: Calibri, Georgia, Arial;
     font-size: 0.6em;
     font-weight: bold;
-    content: "\2197";
+    content: "\2197\00FE0E";
     position: absolute;
     margin-left: 5px;
 }
@@ -521,7 +513,7 @@ ul.activity-fields li:nth-child(1) {
     font-family: Calibri, Georgia, Arial;
     font-size: 0.6em;
     font-weight: bold;
-    content: "\2191";
+    content: "\2191\00FE0E";
     position: absolute;
     margin-left: 5px;
 }
@@ -552,13 +544,17 @@ footer > div {
     flex-direction: row;
 }
 
-.footer-content p {
-    padding-bottom: 5px;
+.footer-content-item > p:nth-child(1),
+.info p:nth-child(1) {
+    margin-bottom: 5px;
 }
 
 .footer-content-item {
     width: calc(100% / 3);
     margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .footer-content-item:nth-last-child(1) {
@@ -592,6 +588,7 @@ footer > div {
     transform: translateY(-1px);
     width: 100%;
     background-color: yellow;
+    z-index: 5;
 }
 
 .slide-up-animation {
@@ -820,7 +817,7 @@ ul#project-list li .arrow:after {
     font-weight: 200;
     font-size: 0.8em;
     width: 5%;
-    content: "\2192";
+    content: "\2192\00FE0E";
 }
 
 .project-types .strategy::after {
@@ -853,7 +850,7 @@ ul#project-list li .arrow:after {
     font-weight: 200;
     font-size: 0.8em;
     width: 5%;
-    content: "\2191";
+    content: "\2191\00FE0E";
 }
 
 .filter-handler .hidden {
@@ -866,6 +863,18 @@ ul#project-list li .arrow:after {
     margin-bottom: 10px;
 }
 
+.project-index p {
+    display: flex;
+}
+
+.project-index .hidden {
+    display: none;
+}
+
+.double-grid.project-index > .double-grid-item:nth-child(2) > *:nth-child(1) {
+    margin-bottom: 5px;
+}
+
 @media screen and (min-width: 1600px) {
     #wrapper,
     #index-wrapper,
@@ -875,15 +884,15 @@ ul#project-list li .arrow:after {
 }
 
 @media screen and (max-width: 1330px) {
-    body,
-    footer {
+    body {
         font-size: 18px;
     }
 
+    footer,
     .header,
     .clocks div span,
     #indexBar {
-        font-size: 19px;
+        font-size: inherit;
     }
 
     #main > div {
@@ -898,6 +907,10 @@ ul#project-list li .arrow:after {
 @media screen and (max-width: 1280px) {
     .clocks {
         margin: 0;
+    }
+
+    .clocks div {
+        line-height: 25px;
     }
 
     .info {
@@ -915,6 +928,18 @@ ul#project-list li .arrow:after {
 }
 
 @media screen and (max-width: 1080px) {
+    body {
+        font-size: 17px;
+    }
+
+    #wrapper {
+        line-height: 25px;
+    }
+
+    .clocks div {
+        line-height: 23px;
+    }
+
     .social-links {
         width: 240px;
     }
@@ -932,9 +957,8 @@ ul#project-list li .arrow:after {
         margin-bottom: 0;
     }
 
-    body,
-    footer {
-        font-size: 17px;
+    #journal > div {
+        padding: 40px;
     }
 
     #main > div {
@@ -947,6 +971,7 @@ ul#project-list li .arrow:after {
 
     h2 {
         font-size: 80px;
+        line-height: 95px;
     }
 
     .article-picture-left > .img-item > img, .article-picture-right > .img-item > img {
@@ -965,144 +990,83 @@ ul#project-list li .arrow:after {
         margin-right: 25px;
     }
 
-    .clocks {
-        padding-right: 10px;
+    .footer-content > .footer-content-item {
+        width: 50%;
+    }
+
+    .footer-content > .footer-content-item:nth-child(2) {
+        margin-right: 0;
+    }
+
+    .footer-content > .footer-content-item:nth-child(3) {
+        width: 0;
+    }
+
+    .footer-content .info {
+        display: none;
+    }
+
+    .journal-content > .journal-content-item {
+        width: 50%;
+    }
+
+    .journal-content-item:nth-child(2) p {
+        font-size: inherit;
+        margin-bottom: 20px;
+    }
+
+    .double-grid.project-index > .double-grid-item {
+        width: 50%;
+    }
+
+    .project-index .hidden {
+        display: initial;
+    }
+
+    .project-index .visible {
+        display: none;
     }
 }
 
 @media screen and (max-width: 850px) {
-    body,
-    footer {
+    body {
         font-size: 16px;
-    }
-
-    .header,
-    .clocks div span {
-        font-size: 17px;
-    }
-
-    .nav-bar {
-        padding: 25px 110px 0px 40px;
-    }
-
-    .social-links {
-        width: 210px;
     }
 
     #main p {
         padding-right: 0;
     }
-}
 
-@media screen and (max-width: 800px) {
-    #journal {
-        padding-top: 60px;
-    }
-
-    #journal > div {
-        padding: 60px 40px;
-    }
-
-    .journal-content {
-        flex-direction: column;
-        font-size: 19px;
-    }
-
-    .journal-content-item:nth-child(1) {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 30px;
-        color: rgb(100, 100, 100);
-    }
-
-    .journal-content-item:nth-child(1) p {
-        font-size: inherit;
-    }
-
-    .journal-content-item:nth-child(1):hover p {
-        box-shadow: inset 0 -1px rgb(100, 100, 100);
-    }
-
-    .journal-content-item:nth-child(2) {
-        width: 100%;
-    }
-
-    .journal-content-item:nth-child(2) p {
-        font-size: inherit;
-        margin-bottom: 15px;
-    }
-
-    footer {
-        font-size: 19px;
-    }
-
-    .footer-content {
-        height: 320px;
-        flex-direction: column;
-    }
-
-    .footer-content > .footer-content-item {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 25px;
-    }
-
-    .footer-content > .footer-content-item:nth-last-child(1) {
-        margin-bottom: 0;
+    h2 {
+        font-size: 70px;
+        line-height: 85px;
     }
 
     .social-links {
-        width: 280px;
+        width: 220px;
     }
+}
 
-    .info {
-        justify-content: flex-start;
-    }
-
-    @keyframes slide-up {
-        0% {
-            transform: translateY(321px);
-        }
-    
-        100% {
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes slide-down {
-        0% {
-            transform: translateY(0);
-        }
-    
-        100% {
-            transform: translateY(321px);
-        }
-    }
-
-    #subscribe-panel {
-        display: flex;
-        align-items: center;
-    }
-
-    .subscribe-panel-content {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 0;
-    }
-
-    .subscribe-panel-content > span {
-        margin-right: 0;
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
-    .subscribe-panel-content > form {
-        width: 100%;
-        padding-bottom: 5px;
+@media screen and (max-width: 800px) {
+    h2 {
+        font-size: 65px;
+        line-height: 80px;
     }
 }
 
 @media screen and (max-width: 700px) {
+    body {
+        font-size: 15px;
+    }
+
+    #wrapper {
+        line-height: 22px;
+    }
+
+    h2 {
+        line-height: 75px;
+    }
+
     #main > div {
         margin: 0;
         padding: 60px 30px 0 30px;
@@ -1113,8 +1077,10 @@ ul#project-list li .arrow:after {
     }
 
     .nav-bar {
-        padding: 25px 30px 0px 30px;
+        padding: 0 30px 0px 30px;
         margin: 0;
+        height: 10vh;
+        max-height: 70px;
     }
 
     #journal > div,
@@ -1125,6 +1091,8 @@ ul#project-list li .arrow:after {
 
     .bg-blur {
         width: 100%;
+        height: 10vh;
+        max-height: 70px;
     }
 
     .sub-bar .index-link {
@@ -1151,6 +1119,10 @@ ul#project-list li .arrow:after {
 }
 
 @media screen and (max-width: 550px) {  
+    body {
+        font-size: 16px;
+    }
+    
     #main > div {
         padding: 60px 20px 0 20px;
     }
@@ -1172,7 +1144,7 @@ ul#project-list li .arrow:after {
 
     .mobile-only {
         display: flex;
-        font-size: 19px;
+        font-size: 16px;
         width: 100%;
         height: 100%;
         flex-direction: row;
@@ -1209,6 +1181,8 @@ ul#project-list li .arrow:after {
         height: 150px;
         width: 150px;
         left: unset;
+        padding-top: 25px;
+        max-height: unset;
     }
 
     .sub-bar {
@@ -1246,11 +1220,12 @@ ul#project-list li .arrow:after {
     }
 
     h2 {
-        font-size: 70px;
+        font-size: 60px;
+        line-height: 80px;
     }
 
     #title .double-grid-item.bigger {
-        margin-top: 100px;
+        margin-top: 80px;
     }
 
     #main > div:nth-child(2) {
@@ -1260,10 +1235,151 @@ ul#project-list li .arrow:after {
     #main > div:nth-child(4) .double-grid-item:nth-child(1) {
         margin-bottom: 60px;
     }
+
+    .img-item img {
+        object-fit: cover;
+        height: 30vh;
+        min-height: 200px;
+    }
+
+    #journal {
+        padding-top: 60px;
+    }
+
+    .journal-content {
+        flex-direction: column;
+    }
+
+    .journal-content-item:nth-child(1) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+        color: rgb(100, 100, 100);
+    }
+
+    .journal-content-item:nth-child(1):hover p {
+        box-shadow: inset 0 -1px rgb(100, 100, 100);
+    }
+
+    .journal-content-item:nth-child(2) {
+        width: 100%;
+    }
+
+    .journal-content-item:nth-child(2) p {
+        margin-bottom: 15px;
+    }
+
+    .footer-content {
+        height: 200px;
+        flex-direction: column;
+    }
+
+    .footer-content > .footer-content-item {
+        width: 100% !important;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .footer-content > .footer-content-item:nth-last-child(1) {
+        margin-bottom: 0;
+    }
+
+    @keyframes slide-up {
+        0% {
+            transform: translateY(201px);
+        }
+    
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slide-down {
+        0% {
+            transform: translateY(0);
+        }
+    
+        100% {
+            transform: translateY(201px);
+        }
+    }
+
+    #subscribe-panel {
+        display: flex;
+        align-items: center;
+    }
+
+    .subscribe-panel-content {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .subscribe-panel-content > span {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .subscribe-panel-content > form {
+        width: 100%;
+        padding-bottom: 5px;
+    }
+
+    .project-index .hidden {
+        display: none;
+    }
+
+    .project-index .visible {
+        display: initial;
+    }
+
+    .double-grid.project-index > .double-grid-item:nth-child(1) {
+        width: 0;
+        margin: 0;
+    }
+
+    .double-grid.project-index > .double-grid-item:nth-child(2) {
+        width: 100%;
+    }
+
+    
+    .footer-content-item > p:nth-child(1),
+    .info p:nth-child(1) {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    h2 {
+        font-size: 55px;
+        line-height: 70px;
+    }
 }
 
 @media screen and (max-width: 330px) {
+    #main {
+        line-height: 28px;
+    }
+
+    h2 {
+        font-size: 50px;
+        line-height: 65px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    footer,
+    .journal-content {
+        font-size: 16px;
+    }
+
     .social-links {
-        width: 100%;
+        width: 220px;
+    }
+
+    h2 {
+        font-size: 45px;
+        line-height: 60px;
     }
 }
