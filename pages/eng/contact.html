@@ -11,7 +11,7 @@
 
 <body>
     <div id="wrapper">
-        <a href="index.html">
+        <a class="index-link" href="index.html">
             <div id="indexBar">
                 <p class="rotated">Index</p>
             </div>
@@ -22,12 +22,20 @@
             <div class="nav-bar">
                 <span class="brand-name"><a href="main.html">AREA 17</a></span>
                 <ul class="sub-bar">
-                    <li class="sub-item"><a href="work.html">Work</a></li>
-                    <li class="sub-item"><a href="about.html">About</a></li>
-                    <li class="sub-item selected-link"><a href="contact.html">Contact</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="selected-link"><a href="#top">Contact</a></li>
+                    <li><a class="index-link" href="index.html">Index</a></li>
                 </ul>
             </div>
-            <div class="bg-blur"></div>
+            <div class="bg-blur">
+                <span class="mobile-only">
+                    <a class="brand-name" href="#top">AREA 17</a>
+                    <a href="#top">
+                        <span class="top-arrow"></span>
+                    </a>
+                </span>
+            </div>
             <div class="clocks">
                 <div>
                     <span>New York</span>
@@ -48,9 +56,11 @@
 
         <section id="main">
             <div id="title" class="double-grid">
-                <div class="double-grid-item smaller"><a href="main.html">
-                        <h1>A/</h1>
-                    </a></div>
+                <div class="double-grid-item smaller">
+                    <h1>
+                        <a href="main.html">A/</a>
+                    </h1>
+                </div>
                 <div class="double-grid-item bigger">
                     <h2>Contact</h2>
                 </div>
@@ -93,13 +103,13 @@
             <div class="article-picture-left more-top-padding">
                 <div class="single-grid-item img-item">
                     <div class="slideshow">
-                        <img class="hiden" src="../../pictures/office/Moscow/moscow01.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/Moscow/moscow01.jpg" alt="office" height="100%"
                             width="100%">
-                        <img class="hiden" src="../../pictures/office/Moscow/moscow02.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/Moscow/moscow02.jpg" alt="office" height="100%"
                             width="100%">
-                        <img class="hiden" src="../../pictures/office/Moscow/moscow03.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/Moscow/moscow03.jpg" alt="office" height="100%"
                             width="100%">
-                        <img class="hiden" src="../../pictures/office/Moscow/moscow04.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/Moscow/moscow04.jpg" alt="office" height="100%"
                             width="100%">
                     </div>
                 </div>
@@ -127,15 +137,15 @@
             <div class="article-picture-right more-top-padding">
                 <div class="single-grid-item img-item">
                     <div class="slideshow">
-                        <img class="hiden" src="../../pictures/office/NewYork/nyc01.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/NewYork/nyc01.jpg" alt="office" height="100%"
                             width="100%">
-                        <img class="hiden" src="../../pictures/office/NewYork/nyc02.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/NewYork/nyc02.jpg" alt="office" height="100%"
                             width="100%">
-                        <img class="hiden" src="../../pictures/office/NewYork/nyc03.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/NewYork/nyc03.jpg" alt="office" height="100%"
                             width="100%">
-                        <img class="hiden" src="../../pictures/office/NewYork/nyc04.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/NewYork/nyc04.jpg" alt="office" height="100%"
                             width="100%">
-                        <img class="hiden" src="../../pictures/office/NewYork/nyc05.jpg" alt="office" height="100%"
+                        <img src="../../pictures/office/NewYork/nyc05.jpg" alt="office" height="100%"
                             width="100%">
                     </div>
                 </div>
@@ -201,11 +211,11 @@
             </div>
         </section>
 
-        <footer>
+        <footer class="no-top-margin special">
             <div class="footer-content">
                 <div class="footer-content-item">
-                    <p><a class="link-underlined inactive" id="eng" href="contact.html">English version</a></p>
-                    <p><a class="link-underlined" id="french" href="../french/contact.html">Version française</a></p>
+                    <p><a class="link-underlined inactive" id="eng" href="main.html">English version</a></p>
+                    <p><a class="link-underlined" id="french" href="../french/main.html">Version française</a></p>
                 </div>
                 <div class="footer-content-item">
                     <p>
@@ -218,13 +228,18 @@
                     </span>
                 </div>
                 <div class="footer-content-item">
-                    <div class="copyright">
-                        <p>&copy 2020 area17.com. All rights reserved.</p>
-                        <p>99 Richardson Street, Brooklyn, NY 11211.</p>
+                    <div class="info">
+                        <span class="full">
+                            <p>&copy 2021 AREA17.com. All rights reserved</p>
+                            <p>99 Richardson Street, Brooklyn, NY 11211</p>
+                        </span>
+                        <span class="short">
+                            <p>&copy 2021 AREA17.com</p>
+                            <p>Brooklyn, New York</p>
+                        </span>
                     </div>
                 </div>
             </div>
-        </footer>
     </div>
     <script src="../../scripts/clocks.js" type="text/javascript"></script>
     <script src="../../scripts/inactiveLinks.js" type="text/javascript"></script>
@@ -235,6 +250,7 @@
     <script src="../../scripts/slideShow.js" type="text/javascript"></script>
     <script src="../../scripts/freelanceLinks.js" type="text/javascript"></script>
     <script src="../../scripts/mainOpenClose.js" type="text/javascript"></script>
+    <script src="../../scripts/mobileScroll.js" type="text/javascript"></script>
 </body>
 
 </html>
