@@ -1,4 +1,4 @@
-const navbarLinks = document.querySelectorAll('.brand-name a, #initial-header.sub-bar .sub-item a');
+const navbarLinks = document.querySelectorAll('.brand-name a, #initial-header.sub-bar li a');
 const indexBarLink = document.getElementById('indexBar').parentElement;
 const scrollToTopLink = document.getElementById('scroll-top');
 
@@ -47,6 +47,10 @@ indexBarLink.addEventListener('click', (event) => {
 });
 
 navbarLinks.forEach((link) => {
+    if (link.classList.contains('index-link')){
+        return;
+    }
+
     link.addEventListener('click', (event) => {
         event.preventDefault();
         scrollToTopLink.click();

@@ -88,7 +88,7 @@ h4 {
 }
 
 h1 a:link {
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 h2 br {
@@ -362,6 +362,13 @@ ul.activity-fields li:nth-child(1) {
     padding: 15%;
 }
 
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 50px;
+    width: 70%;
+}
+
 .bg-blur {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(7px);
@@ -388,6 +395,15 @@ ul.activity-fields li:nth-child(1) {
     margin-left: 70px;
     z-index: 3;
     overflow: hidden;
+}
+
+#index-wrapper .nav-bar {
+    align-items: flex-start;
+    padding-top: 22px;
+}
+
+#index-wrapper #title .hidden {
+    display: none;
 }
 
 .brand-name {
@@ -682,12 +698,23 @@ ul.freelance li {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding: 15px 0;
     border-bottom: 1px solid black;
 }
 
 ul.freelance li:nth-child(1) {
     cursor: default;
+}
+
+ul.freelance li > *:nth-child(1) {
+    width: 75%;
+    text-align: start;
+}
+
+ul.freelance li > *:nth-child(2) {
+    width: 35%;
+    text-align: end;
 }
 
 .footer-content p,
@@ -801,8 +828,10 @@ ul#project-list li.absent {
     color: rgb(100, 100, 100);
 }
 
-ul#project-list li :nth-child(1) {
+ul#project-list li > *:nth-child(1) {
     width: 55%;
+    display: flex;
+    flex-direction: row;
 }
 
 ul#project-list li .project-year {
@@ -846,7 +875,7 @@ ul#project-list li .arrow:after {
     display: none;
 }
 
-#scroll-header .filter-handler {
+.header .filter-handler {
     display: flex;
     flex-direction: column;
 }
@@ -864,6 +893,11 @@ ul#project-list li .arrow:after {
     flex-direction: column;
 }
 
+.filter-handler .all a,
+.filter-handler .strategy a {
+    pointer-events: none;
+}
+
 .filter-handler .all,
 .filter-handler .hidden > * {
     margin-bottom: 10px;
@@ -879,6 +913,10 @@ ul#project-list li .arrow:after {
 
 .double-grid.project-index > .double-grid-item:nth-child(2) > *:nth-child(1) {
     margin-bottom: 5px;
+}
+
+ul#scroll-header > li.sub-item:nth-child(2) {
+    width: calc(27% + 75px);
 }
 
 @media screen and (min-width: 2000px) {
@@ -915,12 +953,21 @@ ul#project-list li .arrow:after {
         font-size: 1.5em;
     }
 
+    #index-wrapper .nav-bar,
+    #index-wrapper .bg-blur {
+        height: 65px;
+    }
+
     ul.activity-fields li {
         margin-top: 25px;
     }
 
     .more-top-padding {
         padding-top: 100px !important;
+    }
+
+    ul#scroll-header > li.sub-item:nth-child(2) {
+        width: calc(27% + 65px);
     }
 
     footer,
@@ -936,6 +983,10 @@ ul#project-list li .arrow:after {
 }
 
 @media screen and (max-width: 1280px) {
+    #index-wrapper #title {
+        margin-bottom: 60px;
+    }
+
     .clocks {
         margin: 0;
     }
@@ -965,6 +1016,10 @@ ul#project-list li .arrow:after {
 
     #wrapper {
         line-height: 25px;
+    }
+
+    #index-wrapper #title {
+        margin-bottom: 0;
     }
 
     .clocks div {
@@ -1013,6 +1068,10 @@ ul#project-list li .arrow:after {
         line-height: 95px;
     }
 
+    #index-wrapper h2 {
+        font-size: 70px;
+    }
+
     .article-picture-left > .img-item > img, .article-picture-right > .img-item > img {
         width: 100%;
     }
@@ -1041,6 +1100,11 @@ ul#project-list li .arrow:after {
     .slideshow {
         width: 100%;
         height: 50vw;
+    }
+
+    .contacts-grid {
+        width: 100%;
+        column-gap: 40px;
     }
 }
 
@@ -1092,6 +1156,20 @@ ul#project-list li .arrow:after {
     .more-top-padding {
         padding-top: 80px !important;
     }
+
+    .more-bottom-padding {
+        padding-bottom: 100px !important;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #index-wrapper ul#project-list li .project-types {
+        display: none;
+    }
+
+    #index-wrapper ul#project-list li > *:nth-child(1) {
+        width: 95%;
+    }
 }
 
 @media screen and (max-width: 850px) {
@@ -1108,8 +1186,16 @@ ul#project-list li .arrow:after {
         line-height: 85px;
     }
 
+    #index-wrapper h2 {
+        font-size: 60px;
+    }
+
     h3 {
         font-size: 32px;
+    }
+
+    ul#scroll-header > li.sub-item:nth-child(2) {
+        width: calc(27% + 60px);
     }
 
     .social-links {
@@ -1121,6 +1207,10 @@ ul#project-list li .arrow:after {
     h2 {
         font-size: 65px;
         line-height: 80px;
+    }
+
+    #index-wrapper h2 {
+        font-size: 55px;
     }
 }
 
@@ -1135,13 +1225,26 @@ ul#project-list li .arrow:after {
         line-height: 22px;
     }
 
+    ul#scroll-header > li.sub-item:nth-child(1) {
+        display: none;
+    }
+
     h2 {
         line-height: 75px;
     }
 
-    #main > div {
+    #main > div,
+    #index-wrapper #main > div {
         margin: 0;
         padding: 40px 30px 0 30px;
+    }
+
+    #index-wrapper #main #title {
+        padding-top: 0;
+    }
+
+    #index-wrapper #main > #scroll-position {
+        padding-bottom: 0;
     }
 
     #main > #title {
@@ -1151,6 +1254,14 @@ ul#project-list li .arrow:after {
     .nav-bar {
         padding: 0 30px 0px 30px;
         margin: 0;
+    }
+
+    .bg-blur {
+        width: 100%;
+    }
+
+    #wrapper .nav-bar,
+    #wrapper .bg-blur {
         height: 10vh;
         max-height: 70px;
     }
@@ -1164,12 +1275,6 @@ ul#project-list li .arrow:after {
     .cards-grid {
         column-gap: 30px;
         row-gap: 50px;
-    }
-
-    .bg-blur {
-        width: 100%;
-        height: 10vh;
-        max-height: 70px;
     }
 
     .sub-bar .index-link {
@@ -1218,8 +1323,38 @@ ul#project-list li .arrow:after {
         font-size: 16px;
     }
 
-    #main > div {
+    #wrapper #main > div,
+    #index-wrapper #main > div {
         padding: 60px 20px 0 20px;
+    }
+
+    #index-wrapper #main > #scroll-position {
+        padding-top: 0;
+        padding-bottom: 10vh;
+    }
+
+    #index-wrapper #main > div:nth-child(3) {
+        padding-top: 0;
+    }
+
+    #index-wrapper .selected-link {
+        width: fit-content;
+    }
+
+    #index-wrapper .selected-link a:link {
+        box-shadow: unset;
+    }
+
+    #index-wrapper #title .hidden {
+        display: initial;
+    }
+
+    #index-wrapper #title .visible {
+        display: none;
+    }
+
+    #index-wrapper .header {
+        height: 0;
     }
 
     .double-grid-item,
@@ -1258,14 +1393,15 @@ ul#project-list li .arrow:after {
         height: 100%;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: baseline;
     }
 
     .mobile-only > * {
         display: flex;
         align-items: center;
         padding: 0 20px 0 20px;
-        height: 100%;
+        height: 10vh;
+        max-height: 70px;
     }
 
     .mobile-only > .brand-name {
@@ -1274,7 +1410,7 @@ ul#project-list li .arrow:after {
     }
 
     .mobile-only a:link {
-        box-shadow: none;
+        box-shadow: none !important;
     }
 
     .mobile-only .top-arrow:after {
@@ -1284,7 +1420,8 @@ ul#project-list li .arrow:after {
         margin: 0;
     }
 
-    .nav-bar {
+    #wrapper .nav-bar,
+    #index-wrapper .nav-bar {
         position: absolute;
         justify-content: flex-end;
         height: 150px;
@@ -1319,13 +1456,19 @@ ul#project-list li .arrow:after {
         margin-bottom: 0;
     }
 
-    #main > #title {
+    #wrapper #main > #title,
+    #index-wrapper #main > #title {
         padding-top: 25px;
+    }
+
+    #main > #title > div:nth-child(1) {
+        margin-bottom: 100px;
     }
 
     h1 {
         font-size: 90px;
-        margin-top: -35px;
+        margin-top: -30px;
+        position: absolute;
     }
 
     h2 {
@@ -1459,6 +1602,12 @@ ul#project-list li .arrow:after {
     .less-top-padding {
         padding-top: 20px !important;
     }
+
+    /* for corrent display on Apple devices (for some reason 'display: flex' is broken at this break point) */
+    .footer-content p,
+    .footer-content p a {
+        display: -webkit-inline-box;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1471,6 +1620,10 @@ ul#project-list li .arrow:after {
     h2 {
         font-size: 55px;
         line-height: 70px;
+    }
+
+    #index-wrapper h2 {
+        font-size: 45px;
     }
 
     .logos-grid {
@@ -1487,6 +1640,14 @@ ul#project-list li .arrow:after {
         font-size: 50px;
         line-height: 65px;
     }
+
+    #index-wrapper h2 {
+        font-size: 40px;
+    }
+
+    #index-wrapper .mobile-only > *:nth-child(2) {
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 300px) {
@@ -1502,5 +1663,9 @@ ul#project-list li .arrow:after {
     h2 {
         font-size: 45px;
         line-height: 60px;
+    }
+
+    #index-wrapper h2 {
+        font-size: 35px;
     }
 }
