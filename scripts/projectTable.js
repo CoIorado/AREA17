@@ -267,6 +267,7 @@ function getInitialHeight() {
 function openHeader() {
     const filterHandler = document.querySelector('.header .filter-handler');
     const hiddenButtons = filterHandler.querySelector('.hidden');
+    const bgBlur = document.querySelector('#index-wrapper .bg-blur');
 
     if (window.isMobile()) {
         hiddenButtons.classList.add('shown');
@@ -277,6 +278,8 @@ function openHeader() {
         gsap.fromTo('#index-wrapper .header .filter-handler .hidden',
                     { opacity: 0},
                     { opacity: 1, duration: 0.5, ease: "power4.out" });
+        
+        bgBlur.style.maxHeight = "";
         gsap.to('#index-wrapper .bg-blur',
                 { height: height, duration: 0.5, ease: "power4.out" });
 
@@ -324,6 +327,7 @@ function closeHeader() {
         gsap.fromTo('#index-wrapper .header .filter-handler .hidden',
                     { opacity: 1},
                     { opacity: 0, duration: 0.5, ease: "power4.out" });
+        bgBlur.style.maxHeight = "70px";
         gsap.to('#index-wrapper .bg-blur',
                 { height: initialHeight, duration: 1, ease: "power4.out" });
 
